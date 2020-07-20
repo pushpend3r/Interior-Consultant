@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora:wght@400;700&family=Montserrat:wght@300;500;600&display=swap");
+
+$font-1: "Lora", serif;
+$font-2: "Montserrat", sans-serif;
+$font-3: "Crimson Pro", serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100vw;
+  background-color: #181719;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 90%;
+  margin: auto;
+  max-width: 1440px;
+  background-color: #181719;
+  color: white;
+  overflow-x: hidden;
+  padding: 5vh 0;
+
+  > * + * {
+    margin-top: 5vw;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+
+  .logo {
+    border: 3px solid white;
+    font-family: $font-3;
+    text-transform: uppercase;
+    padding: 10px;
+    font-size: 1em;
+  }
+
+  nav {
+    .nav-links {
+      list-style: none;
+      display: flex;
+
+      li {
+        display: block;
+        font-family: $font-2;
+        font-weight: 500;
+      }
+
+      li.active {
+        font-weight: bold;
+      }
+
+      > * + * {
+        margin-left: 6em;
+      }
+    }
+
+    img {
+      display: none;
+    }
+  }
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+
+  .main-info {
+    width: 35%;
+    h1 {
+      font-family: $font-1;
+      font-size: 2em;
+      font-weight: 400;
+    }
+
+    p,
+    .moreInfo {
+      font-family: $font-2;
+    }
+
+    p {
+      font-size: 1.3em;
+      font-weight: 300;
+    }
+
+    .moreInfo {
+      font-weight: 600;
+      font-size: 1.1em;
+
+      img {
+        margin-left: 1em;
+        vertical-align: bottom;
+      }
+    }
+
+    > * + * {
+      margin-top: 5vh;
+    }
+  }
+
+  .main-image {
+    position: relative;
+    width: 50%;
+
+    > .image {
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .card {
+      padding: 20px;
+      width: 400px;
+      position: absolute;
+      bottom: -100px;
+      right: 20px;
+      background-color: #181719;
+
+      .user {
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 50px;
+          border-radius: 50%;
+        }
+
+        .userInfo {
+          h3,
+          p {
+            font-family: $font-2;
+            font-weight: 500;
+            margin-left: 1em;
+          }
+
+          h3 {
+            font-size: 0.9em;
+            line-height: 1.5em;
+          }
+
+          p {
+            font-size: 0.8em;
+            color: #828282;
+          }
+        }
+      }
+
+      h2 {
+        display: block;
+        width: 80%;
+        font-family: $font-1;
+        margin-top: 2.5vh;
+      }
+    }
+  }
+}
+
+footer {
+  text-align: center;
+  font-family: $font-2;
+  color: #a9a9a9;
+  margin-top: 10vw;
+}
+
+@media (max-width: 768px) {
+
+  body {
+    > * + * {
+      margin-top: 8vw;
+    }
+  }
+
+  header {
+    nav {
+      .nav-links {
+        > * + * {
+          margin-left: 4em;
+        }
+      }
+    }
+  }
+
+  main {
+    flex-direction: column;
+    > .main-image, > .main-info {
+      width: 100%;
+    }
+
+    > * + * {
+      margin-top: 5vw;
+    }
+  }
+
+  footer {
+    margin-top: 20vw;
+  }
+}
+
+@media (max-width: 425px) {
+  header {
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+        z-index: 1;
+      }
+
+      img {
+        display: block;
+        width: 2em;
+        z-index: 1;
+      }
+    }
+  }
+
+  main {
+    font-size: 14px;
+    .main-image {
+      .card {
+        width: 300px;
+      }
+    }
+  }
+
+  footer {
+    margin-top: 40vw;
+    span {
+      padding: 20px;
+      border-top: 2px solid #a9a9a9;
+    }
+  }
+}
