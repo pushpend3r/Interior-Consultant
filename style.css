@@ -196,12 +196,9 @@ footer {
   margin-top: 10vw;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   body > * + * {
     margin-top: 8vw;
-  }
-  header .nav-links > * + * {
-    margin-left: 4em;
   }
   main {
     -webkit-box-orient: vertical;
@@ -218,6 +215,12 @@ footer {
   }
   footer {
     margin-top: 20vw;
+  }
+}
+
+@media (max-width: 768px) {
+  header .nav-links > * + * {
+    margin-left: 4em;
   }
 }
 
@@ -256,12 +259,12 @@ footer {
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 500px) {
   main {
     font-size: 14px;
   }
   main .main-image .card {
-    width: 300px;
+    width: 80%;
   }
   footer {
     margin-top: 40vw;
@@ -269,6 +272,15 @@ footer {
   footer span {
     padding: 20px;
     border-top: 2px solid #a9a9a9;
+  }
+}
+
+@media (max-width: 380px) {
+  main {
+    font-size: 12px;
+  }
+  footer {
+    font-size: 12px;
   }
 }
 /*# sourceMappingURL=style.css.map */
