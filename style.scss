@@ -41,6 +41,7 @@ header {
   justify-content: space-between;
   align-items: center;
   font-size: 16px;
+  position: relative;
 
   .logo {
     border: 3px solid white;
@@ -50,29 +51,33 @@ header {
     font-size: 1em;
   }
 
-  nav {
-    .nav-links {
-      list-style: none;
-      display: flex;
+  .nav-links {
+    list-style: none;
+    background-color: #181719;
+    display: flex;
 
-      li {
-        display: block;
-        font-family: $font-2;
-        font-weight: 500;
-      }
-
-      li.active {
-        font-weight: bold;
-      }
-
-      > * + * {
-        margin-left: 6em;
-      }
+    li {
+      display: block;
+      font-family: $font-2;
+      font-weight: 500;
     }
 
-    img {
-      display: none;
+    li.active {
+      font-weight: bold;
     }
+
+    > * + * {
+      margin-left: 6em;
+    }
+  }
+
+  #nav-toggler {
+    display: none;
+    width: 2em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
   }
 }
 
@@ -181,7 +186,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-
   body {
     > * + * {
       margin-top: 8vw;
@@ -189,18 +193,17 @@ footer {
   }
 
   header {
-    nav {
-      .nav-links {
-        > * + * {
-          margin-left: 4em;
-        }
+    .nav-links {
+      > * + * {
+        margin-left: 4em;
       }
     }
   }
 
   main {
     flex-direction: column;
-    > .main-image, > .main-info {
+    > .main-image,
+    > .main-info {
       width: 100%;
     }
 
@@ -214,28 +217,41 @@ footer {
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 650px) {
   header {
-    nav {
+    .nav-links {
+      display: none;
+    }
+
+    > #nav-toggler {
+      display: block;
+    }
+
+    .mobile {
       display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      flex-direction: column;
       justify-content: center;
-      align-items: center;
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100vw;
-        height: 100vh;
-        z-index: 1;
+      z-index: 1;
+      text-align: center;
+
+      > *:not(img) + *:not(img) {
+        margin-left: 0;
+        margin-top: 5em;
       }
 
-      img {
+      > #menuIcon {
         display: block;
-        width: 2em;
-        z-index: 1;
       }
     }
   }
+}
 
+@media (max-width: 425px) {
   main {
     font-size: 14px;
     .main-image {
